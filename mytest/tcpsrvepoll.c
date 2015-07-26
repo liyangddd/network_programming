@@ -45,7 +45,7 @@ int main(int argc, char **argv)
   if (efd == -1)
     err_exit("epoll_create1 error");
   event.data.fd = listenfd;
-  event.events = EPOLLIN | EPOLLET;  //读入,边缘触发方式  
+  event.events = EPOLLIN | EPOLLET;  //读入,采用边缘触发方式  
   int s = epoll_ctl(efd, EPOLL_CTL_ADD, listenfd, &event);
   if (s == -1)
     err_quit("epoll_ctl error");
